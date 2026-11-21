@@ -5,6 +5,9 @@ JOKE = "Right in the middle of our investor demo, the agent resolved an out-of-m
 
 
 def main() -> None:
+    if not (1 <= len(JOKE) <= 280):
+        raise ValueError(f"Joke must be 1-280 Unicode characters, got {len(JOKE)}")
+
     output_dir_str = os.environ.get("MAKEFUN_OUTPUT_DIR", "./output")
     output_dir = Path(output_dir_str)
     output_dir.mkdir(parents=True, exist_ok=True)
